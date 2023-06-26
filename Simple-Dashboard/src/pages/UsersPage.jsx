@@ -1,14 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import UserRow from "../components/UserRow";
 import LoadingScreen from '../components/LoadingScreen'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store/action/actionCreator";
+import AddUserModal from "../components/UserModal";
 
 export default function UsersPage() {
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchUsers()), []);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+
+  const addUserHandler = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+
+  useEffect(() => {
+    ispatch(fetchUsers());
+    handleClose();
+  }, []);
+
   const { users, loading } = useSelector(
     (state) => state.user
   );
@@ -23,7 +37,7 @@ export default function UsersPage() {
         {loading ? <LoadingScreen /> : (
           <>
             <div className="w-full d-flex justify-content-end mb-2">
-              <Button className="" variant="primary">
+              <Button onClick={addUserHandler} className="" variant="primary">
                 {" "}
                 + Add New Account
               </Button>
@@ -57,6 +71,7 @@ export default function UsersPage() {
                   })}
               </tbody>
             </Table>
+            <AddUserModal show={show} onHide={handleClose} />
           </>
         )}
       </div>

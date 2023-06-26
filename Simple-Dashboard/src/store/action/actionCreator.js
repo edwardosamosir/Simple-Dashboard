@@ -56,6 +56,7 @@ export const fetchUsers = () => {
   };
 };
 
+
 export const fetchProducts = () => {
   return (dispatch) => {
     dispatch({ type: PRODUCTS_FETCH_LOADING, payload: true })
@@ -68,7 +69,6 @@ export const fetchProducts = () => {
         }
       })
       .then((data) => {
-        console.log(data.products)
         dispatch({ type: PRODUCTS_FETCH_ALL, payload: data.products });
       })
       .catch((error) => {

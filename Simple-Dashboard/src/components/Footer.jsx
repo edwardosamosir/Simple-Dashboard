@@ -1,6 +1,7 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import "../css/Footer.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -8,24 +9,24 @@ export default function Footer() {
       <footer className="py-1 my-1">
         <ul className="nav justify-content-center border-bottom pb-3 mb-3">
           <li className="nav-item">
-            <a className="nav-link px-2 text-muted">
+            <Link className="nav-link px-2 text-muted">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link px-2 text-muted">
+            <Link className="nav-link px-2 text-muted">
               Features
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link px-2 text-muted">
+            <Link className="nav-link px-2 text-muted">
               Pricing
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link px-2 text-muted">
+            <Link className="nav-link px-2 text-muted">
               About us
-            </a>
+            </Link>
           </li>
         </ul>
         <p className="footer-copyright text-muted">© 2023 Samosir Bersaudara Tbk.</p>
