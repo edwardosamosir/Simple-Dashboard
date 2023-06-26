@@ -10,6 +10,8 @@ import {
   PRODUCTS_FETCH_LOADING,
   PRODUCTS_FETCH_ID
 } from "./actionType";
+import Swal from "sweetalert2";
+
 
 export const searchQuery = (payload) => {
   return {
@@ -55,6 +57,44 @@ export const fetchUsers = () => {
       });
   };
 };
+
+export const addUser = (payload) => {
+  return (dispatch) => {
+    dispatch({ type: USERS_FETCH_LOADING, payload: true })
+    fetch(`${baseUrl}/users/add`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        access_token: localStorage.getItem("access_token"),
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Internal Server Error");
+        }
+      })
+      .then((data) => {
+        console.log(data)
+        Swal.fire({
+          text: "User Data Succesfully Added",
+          icon: "success",
+          iconColor: '#8d9399',
+          title: 'Addition of User Data',
+          showConfirmButton: false,
+          timer: 2500,
+        })
+      })
+      .catch((error) => {
+        dispatch({ type: USERS_ERROR, payload: error?.message })
+      })
+      .finally(_ => {
+        dispatch({ type: USERS_FETCH_LOADING, payload: false })
+      })
+  }
+}
 
 
 export const fetchProducts = () => {

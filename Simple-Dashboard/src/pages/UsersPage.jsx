@@ -19,7 +19,7 @@ export default function UsersPage() {
   };
 
   useEffect(() => {
-    ispatch(fetchUsers());
+    dispatch(fetchUsers());
     handleClose();
   }, []);
 

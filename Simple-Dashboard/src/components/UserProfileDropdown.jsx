@@ -16,7 +16,7 @@ export default function UserProfileDropdown() {
   const imageUrl = localStorage.getItem('image')
 
   return (
-    <Dropdown style={{backgroundColor:"rgba(235,245,255,255) !important;"}}>
+    <Dropdown style={{backgroundColor:"rgba(235,245,255,255) !important"}}>
       <Dropdown.Toggle 
         className="border-black"
         id="dropdown-basic"
