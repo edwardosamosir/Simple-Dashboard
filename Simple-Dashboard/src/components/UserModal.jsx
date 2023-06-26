@@ -180,10 +180,19 @@ export default function AddUserModal({ show, onHide }) {
                             onChange={userDataHandler}
                         />
                     </Form.Group>
-                    <Button type="submit" variant="primary">
-                        Submit
-                    </Button>
-
+                    {userData.firstName && 
+                     userData.lastName && 
+                     userData.age && 
+                     userData.email && 
+                     userData.phone && 
+                     userData.username && 
+                     userData.password &&
+                     userData.image &&
+                     (
+                        <Button type="submit" variant="primary" onClick={onHide}>
+                            Submit
+                        </Button>
+                    )}
                 </Form>
             </Modal.Body>
             <Modal.Footer>
