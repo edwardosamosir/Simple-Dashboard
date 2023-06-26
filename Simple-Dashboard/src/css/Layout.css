@@ -1,0 +1,9 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content > .row {
+  flex-grow: 1;
+  overflow: auto;
+}
