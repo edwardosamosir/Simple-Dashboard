@@ -12,6 +12,8 @@ export default function UserProfileDropdown() {
     localStorage.clear();
     navigate("/login");
   };
+  
+  const imageUrl = localStorage.getItem('image')
 
   return (
     <Dropdown>
@@ -21,7 +23,7 @@ export default function UserProfileDropdown() {
       >
         <img
           className="profile-image"
-          src="https://www.pngmart.com/files/22/User-Avatar-Profile-Transparent-Background.png"
+          src={imageUrl}
           alt="User profile"
         />
       </Dropdown.Toggle>

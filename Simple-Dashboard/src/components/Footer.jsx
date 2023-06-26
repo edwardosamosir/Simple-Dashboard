@@ -28,7 +28,7 @@ export default function Footer() {
             </a>
           </li>
         </ul>
-        <p className="footer-copyright text-muted">© 2023 Samosir Company, Inc</p>
+        <p className="footer-copyright text-muted">© 2023 Samosir Bersaudara Tbk.</p>
       </footer>
     </Row>
   );

@@ -15,7 +15,7 @@ export default function Layout() {
   return (
     <div className="container-fluid vh-100 bg-light">
       <Row className="bg-white h-100">
-        <Sidebar
+        <Sidebar 
           isSidebarOpen={isSidebarOpen}
           onSidebarToggle={handleSidebarToggle}
         />

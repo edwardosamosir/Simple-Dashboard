@@ -32,8 +32,8 @@ export default function Sidebar() {
   return (
     <Col
       md={2}
-      className="vh-100 justify-content-center align-items-center bg-white sidebar-col"
-      style={{ fontFamily: "Poppins" }}
+      className="justify-content-center align-items-center sidebar-col"
+      style={{ fontFamily: "Poppins", backgroundColor: "rgba(235,245,255,255)" }}
     >
       <Button
         className="d-md-none" // Only visible in small screens
@@ -59,22 +59,22 @@ export default function Sidebar() {
                 <AiOutlineAppstore className="text-success sidebar-icon" size={26} /> Dashboard
               </li>
             </Link>
-            <Link className="text-decoration-none text-dark" to={"/products"}>
-              <li className="mt-3 hover sidebar-item">
-                <FaBoxes className="text-secondary sidebar-icon" size={26} /> Products
-              </li>
-            </Link>
             <Link className="text-decoration-none text-dark" to={"/users"}>
               <li className="mt-3 hover sidebar-item">
                 <FaUsers className="text-info sidebar-icon" size={26} /> Users
               </li>
             </Link>
+            <Link className="text-decoration-none text-dark" to={"/products"}>
+              <li className="mt-3 hover sidebar-item">
+                <FaBoxes className="text-secondary sidebar-icon" size={26} /> Products
+              </li>
+            </Link>
             <Link className="text-decoration-none text-dark" to={"/login"}>
-            <li className="mt-3 hover sidebar-item">
-              <FiLogOut className="text-danger sidebar-icon" size={26} onClick={handleLogout}/> <Link className="text-decoration-none text-dark"  onClick={handleLogout}>
-              Log Out</Link> 
-            </li>
-          </Link>
+              <li className="mt-3 hover sidebar-item">
+                <FiLogOut className="text-danger sidebar-icon" size={26} onClick={handleLogout} /> <Link className="text-decoration-none text-dark" onClick={handleLogout}>
+                  Log Out</Link>
+              </li>
+            </Link>
           </ul>
         </div>
       </Collapse>

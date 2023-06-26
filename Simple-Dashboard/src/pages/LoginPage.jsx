@@ -58,9 +58,11 @@ export default function LoginPage() {
         }
       })
       .then((data) => {
-        console.log(data)
-        const { token } = data;
+        const { token, firstName, lastName, image } = data;
         localStorage.setItem("access_token", token);
+        localStorage.setItem("firstName", firstName);
+        localStorage.setItem("lastName", lastName);
+        localStorage.setItem("image", image);
         navigate("/");
       })
       .catch((error) => {
