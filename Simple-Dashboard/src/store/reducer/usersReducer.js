@@ -18,7 +18,7 @@ function usersReducer(state = defaultState, action) {
         case USERS_FETCH_ID:
             return {
                 ...state,
-                postDetail: action.payload
+                userDetail: action.payload
             }
         case USERS_FETCH_LOADING:
             return {

@@ -3,7 +3,7 @@ import { Button, Table } from "react-bootstrap";
 import UserRow from "../components/UserRow";
 import LoadingScreen from '../components/LoadingScreen'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, searchQuery } from "../store/action/actionCreator";
+import { fetchUsers } from "../store/action/actionCreator";
 
 export default function UsersPage() {
   const dispatch = useDispatch();
@@ -38,6 +38,7 @@ export default function UsersPage() {
               <thead>
                 <tr className="text-center bg-dark text-white py-3 px-3">
                   <th className="px-2">No.</th>
+                  <th className="px-5">Photo</th>
                   <th className="px-2">First Name</th>
                   <th className="px-2">Last Name</th>
                   <th className="px-3 ">Birth Date</th>

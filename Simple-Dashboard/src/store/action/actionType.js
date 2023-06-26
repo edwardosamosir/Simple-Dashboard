@@ -8,7 +8,5 @@ export const PRODUCTS_FETCH_ALL = "products/fetch";
 export const PRODUCTS_FETCH_LOADING = "products/loading";
 export const PRODUCTS_FETCH_ID = "products/:id";
 export const PRODUCTS_ERROR = "products/error";
-export const PRODUCTS_ADD_RESPONSE = "products/";
-export const PRODUCTS_ADD_LOADING = "products/loading";
-export const PRODUCTS_UPDATE = "products/update";
+
 

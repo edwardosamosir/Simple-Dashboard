@@ -4,20 +4,20 @@ import { BiPencil } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { formatDate } from "../helpers/dateFormatter";
 
-
-
-export default function UserRow({user, idx}) {
-
+export default function UserRow({ user, idx }) {
   return (
     <>
-      <tr className=" ">
-        <td className="text-center">{++idx}</td>
-        <td className="px-3">{user?.firstName}</td>
-        <td className="px-3">{user?.lastName}</td>
-        <td className="text-center">{formatDate(user?.birthDate)}</td>
-        <td className="text-center align-self-center ">{user?.email}</td>
-        <td className="text-center align-self-center ">{user?.phone}</td>
-        <td className="text-center align-self-center  ">
+      <tr className="">
+        <td className="text-center py-4">{++idx}</td>
+        <td className="text-center py-4">
+          <img src={user?.image} height={"120px"} className="w-100 rounded-4 shadow-4" alt="" />
+        </td>
+        <td className="text-center px-3 py-4">{user?.firstName}</td>
+        <td className="text-center px-3 py-4">{user?.lastName}</td>
+        <td className="text-center py-4">{formatDate(user?.birthDate)}</td>
+        <td className="text-center align-self-center py-4">{user?.email}</td>
+        <td className="text-center align-self-center py-4">{user?.phone}</td>
+        <td className="text-center align-self-center py-4">
           <Link>
             <BiPencil className="text-success" />
           </Link>

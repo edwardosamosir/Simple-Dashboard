@@ -3,25 +3,23 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
 
 
-export default function ProductRow() {
-
+export default function ProductRow({ product, idx }) {
   return (
     <>
       <tr className=" py-3">
-        <td className="text-center py-4">No.</td>
+        <td className="text-center py-4">{++idx}</td>
         <td className="text-center py-4">
-        <img src={"https://i.dummyjson.com/data/products/1/1.jpg"} width={"30px"} height={"50px"} className="w-100 rounded-4 shadow-4"
-          alt="" />
+          <img src={product?.images[0]} height={"150px"} className="w-100 rounded-4 shadow-4" alt="" />
         </td>
-        <td className="px-3  py-4 ">Title</td>
-        <td className="align-self-center">Stock</td>
-        <td className="text-center py-4">Price</td>
-        <td className="text-center align-self-center py-4"> Description</td>
-        <td className="text-center align-self-center py-4 ">
-          <a href="" >
+        <td className="text-center py-4">{product?.title}</td>
+        <td className="text-center align-self-center py-4">{product?.stock}</td>
+        <td className="text-center align-self-center py-4">$ {product?.price}</td>
+        <td className="text-center align-self-center py-4">{product?.description}</td>
+        <td className="text-center align-self-center py-4">
+          <a href="">
             <BiPencil className="text-success" />
           </a>
-          <a href="" >
+          <a href="">
             <RiDeleteBin6Line className="ms-3 text-danger" />
           </a>
         </td>
