@@ -16,21 +16,22 @@ export default function UserProfileDropdown() {
   const imageUrl = localStorage.getItem('image')
 
   return (
-    <Dropdown>
-      <Dropdown.Toggle
-        className="bg-white border-white "
+    <Dropdown style={{backgroundColor:"rgba(235,245,255,255) !important;"}}>
+      <Dropdown.Toggle 
+        className="border-black"
         id="dropdown-basic"
+        style={{backgroundColor: "rgba(235,245,255,255)"}}
       >
         <img
-          className="profile-image"
+          className="profile-image bg-white"
           src={imageUrl}
           alt="User profile"
         />
       </Dropdown.Toggle>
       <Dropdown.Menu className="profile-menu">
           <Dropdown.Item><Link className="text-decoration-none text-dark" to="/">Dashboard</Link></Dropdown.Item>
-          <Dropdown.Item><Link className="text-decoration-none text-dark" to="/products">Products</Link></Dropdown.Item>
           <Dropdown.Item><Link className="text-decoration-none text-dark" to="/users">Users</Link></Dropdown.Item>
+          <Dropdown.Item><Link className="text-decoration-none text-dark" to="/products">Products</Link></Dropdown.Item>
           <Dropdown.Item className="logout-option">
             <CgLogOut className="logout-icon" onClick={handleLogout}/> <Link className="text-decoration-none text-dark" onClick={handleLogout}>Log Out</Link>
           </Dropdown.Item>

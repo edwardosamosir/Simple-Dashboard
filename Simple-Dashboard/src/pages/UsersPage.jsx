@@ -35,8 +35,8 @@ export default function UsersPage() {
               className="w-100 align-items-center justify-center"
               style={{ fontFamily: "Poppins" }}
             >
-              <thead>
-                <tr className="text-center bg-dark text-white py-3 px-3">
+              <thead >
+                <tr className="text-center py-3 px-3">
                   <th className="px-2">No.</th>
                   <th className="px-5">Photo</th>
                   <th className="px-2">First Name</th>
