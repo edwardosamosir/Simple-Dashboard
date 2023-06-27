@@ -61,7 +61,7 @@ export default function ProductRow({ product, idx }) {
           <Link>
             <BiPencil className="text-success" />
           </Link>
-          <Link href="">
+          <Link>
             <RiDeleteBin6Line className="ms-3 text-danger" onClick={deleteHandler} disabled={loading} />
           </Link>
         </td>

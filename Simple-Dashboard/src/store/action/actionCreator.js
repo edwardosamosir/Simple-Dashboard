@@ -96,6 +96,66 @@ export const addUser = (payload) => {
   }
 }
 
+export const fetchDetailUser = (userId) => {
+  return (dispatch) => {
+    fetch(`${baseUrl}/users/${userId}`, {
+      method: "GET"
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Internal Server Error");
+        }
+      })
+      .then((data) => {
+        console.log(data)
+        dispatch({ type: USERS_FETCH_ID, payload: data });
+      })
+      .catch((error) => {
+        dispatch({ type: "error" });
+      });
+  };
+};
+
+export const updateUser = (payload, userId) => {
+  return (dispatch) => {
+    dispatch({ type: USERS_FETCH_LOADING, payload: true })
+    fetch(`${baseUrl}/users/${userId}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        access_token: localStorage.getItem("access_token"),
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("something wrong");
+        }
+      })
+      .then((data) => {
+        console.log(data)
+        Swal.fire({
+          text: "User Data Succesfully Modified",
+          icon: "success",
+          iconColor: '#8d9399',
+          title: 'Modification of User Data',
+          showConfirmButton: false,
+          timer: 3500,
+        })
+      })
+      .catch((error) => {
+        dispatch({ type: USERS_ERROR, payload: error?.message })
+      })
+      .finally(_ => {
+        dispatch({ type: USERS_FETCH_LOADING, payload: false })
+      })
+  }
+}
+
 
 export const fetchProducts = () => {
   return (dispatch) => {

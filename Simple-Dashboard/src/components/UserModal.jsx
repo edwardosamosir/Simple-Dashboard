@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../store/action/actionCreator";
 

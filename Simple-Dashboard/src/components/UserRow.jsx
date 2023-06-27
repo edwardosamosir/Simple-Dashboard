@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { formatDate } from "../helpers/dateFormatter";
 import { baseUrl } from "../config/api";
 import Swal from "sweetalert2";
+import UserUpdateModal from "./UserUpdateModal";
 
 export default function UserRow({ user, idx }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
 
   const deleteHandler = (event) => {
     event.preventDefault();
@@ -47,10 +53,24 @@ export default function UserRow({ user, idx }) {
       });
   };
 
+  const updateUserHandler = async(e) => {
+    try {
+      if (!user) {
+        console.log("No user selected");
+        return;
+      }
+      setSelectedUser(user);
+      setShow(true);
+    } catch (error) {
+      console.log(error)
+    }
+  };
+  
+
   return (
     <>
       <tr className="">
-        <td className="text-center py-4">{++idx}</td>
+        <td className="text-center py-4">{idx+1}</td>
         <td className="text-center py-4">
           <img src={user?.image} height={"120px"} className="w-100 rounded-4 shadow-4" alt="" />
         </td>
@@ -60,14 +80,11 @@ export default function UserRow({ user, idx }) {
         <td className="text-center align-self-center py-4">{user?.email}</td>
         <td className="text-center align-self-center py-4">{user?.phone}</td>
         <td className="text-center align-self-center py-4">
-          <Link>
-            <BiPencil className="text-success" />
-          </Link>
-          <Link>
+            <BiPencil className="text-success" onClick={updateUserHandler}/>
             <RiDeleteBin6Line className="ms-3 text-danger" onClick={deleteHandler} disabled={loading}/>
-          </Link>
         </td>
       </tr>
+      <UserUpdateModal selectedUser={selectedUser} show={show} onHide={handleClose}/>
     </>
   );
 }
